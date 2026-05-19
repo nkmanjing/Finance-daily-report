@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金融资管日报</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .date-item:hover {
+      background-color: #1e293b;
+    }
+    .date-item.active {
+      background-color: #3b82f6;
+    }
+    .news-card {
+      background-color: #1e293b;
+      border-radius: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 3px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="flex h-screen">
+    <div class="w-64 bg-slate-900 border-r border-slate-700 flex flex-col">
+      <div class="p-4 border-b border-slate-700">
+        <h1 class="text-xl font-bold text-blue-400">金融资管日报</h1>
+        <p class="text-sm text-slate-400 mt-1">AI HOT 风格</p>
+      </div>
+      <div class="flex-1 overflow-y-auto scrollbar-thin p-2">
+        <div id="date-list" class="space-y-1">
+          <div class="text-center text-slate-500 text-sm py-2">加载中...</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 overflow-y-auto scrollbar-thin p-8">
+      <div id="news-content">
+        <div class="flex flex-col items-center justify-center h-full text-slate-500">
+          <svg class="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <p class="text-lg">选择一个日期查看日报</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
