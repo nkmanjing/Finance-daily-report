@@ -3,11 +3,14 @@ name: Daily Report Update
 on:
   schedule:
     - cron: '0 0 * * *'
+    - cron: '30 0 * * *'
   workflow_dispatch:
 
 jobs:
   update-report:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     
     steps:
       - name: Checkout repository
@@ -28,6 +31,8 @@ jobs:
       
       - name: Run generate_daily.py
         run: python generate_daily.py
+        env:
+          TZ: Asia/Shanghai
       
       - name: Check for changes
         id: check_changes
@@ -48,7 +53,7 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          git add .
+          git add data/
           git commit -m "Auto update: Daily report for $(date +%Y-%m-%d)"
           git push origin main
         env:
