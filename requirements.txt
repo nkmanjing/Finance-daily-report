@@ -1,7 +1,3 @@
-## generate_daily.py 依赖
-## 该脚本仅使用Python标准库，无需额外安装依赖
-
-# Python >= 3.6
-# - os: 文件系统操作
-# - json: JSON数据处理
-# - datetime: 日期处理
+requests==2.31.0
+feedparser==6.0.10
+beautifulsoup4==4.12.3
