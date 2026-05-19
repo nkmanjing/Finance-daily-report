@@ -160,6 +160,10 @@ async function loadDates() {
     const data = await response.json();
     dates = data.dates || [];
     renderDateList();
+    
+    if (dates.length > 0) {
+      loadNews(dates[0]);
+    }
   } catch (error) {
     console.error('加载日期列表失败:', error);
     dates = [];
